@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="text-center">Add Moment</div>
+<div class="card card-container col-md-6">
+
+  <form name="form" [formGroup]="form" (ngSubmit)="f.form.valid && addMoment()" #f="ngForm" novalidate>
+
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input type="textarea" class="form-control" formControlName="comment" required maxlength="100" />
+      <div class="alert alert-danger" role="alert" *ngIf="f.submitted && form.get('comment').hasError('required')">
+        Comment is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tags">Tags</label>
+      <input type="tags" class="form-control" formControlName="tags" required />
+      <div class="alert alert-danger" role="alert" *ngIf="f.submitted && form.get('tags').hasError('required')">
+        Tag is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="pic">Moment Pic</label>
+      <input type="file" class="form-control" name="momentPic" accept='image/*' (change)="uploadFile($event)"
+        #momentPic />
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">
+        Add Moment
+      </button>
+    </div>
+
+    <div class="form-group">
+      <div class="card card-container col-md-6">
+        <img [src]="imgSrc" width="120" height="120">
+      </div>
+    </div>
+
+  </form>
+
+</div>

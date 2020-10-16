@@ -1,0 +1,49 @@
+<div class="card card-container col-md-6">
+
+  <form name="form" [formGroup]="userForm" (ngSubmit)="register()" #f="ngForm" novalidate>
+    
+    <div class="form-group">
+      <label for="fullname">Full Name</label>
+      <input type="text" class="form-control" formControlName="fullName" required maxlength="60" />
+      <div class="alert alert-danger" role="alert" *ngIf="f.submitted && userForm.get('fullName').hasError('required')">
+        Full Name is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" formControlName="email" required maxlength="70" />
+      <div class="alert alert-danger" role="alert" *ngIf="f.submitted && userForm.get('email').hasError('required')">
+        Email is required!
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="f.submitted && userForm.get('email').hasError('invalid')">
+        Email is invalid!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" formControlName="password" required maxlength="30" />
+      <div class="alert alert-danger" role="alert" *ngIf="f.submitted && userForm.get('password').hasError('required')">
+        Password is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control" formControlName="city" required maxlength="70" />
+      <div class="alert alert-danger" role="alert" *ngIf="f.submitted && userForm.get('city').hasError('required')">
+        City is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">
+        Register
+      </button>
+    </div>
+
+  </form>
+
+  <a [routerLink]="['/login']">Click to Login</a>
+</div>
