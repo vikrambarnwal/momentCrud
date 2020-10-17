@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "742384bd-257d-48cf-851a-6e5c3c37d1b4",
+		"name": "5D Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"vikram@email.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8443/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\":\"Vikram Barnwal\",\r\n    \"email\":\"vikrambarnwal@hotmail.com\",\r\n    \"password\":\"Admin@123\",\r\n    \"city\":\"Pune\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8443/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Moment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjg5NTFlYTI5OTJhYTUyNGM4MGRhNjEiLCJmdWxsTmFtZSI6IlZpa3JhbSBCYXJud2FsIiwiaWF0IjoxNjAyODM0OTI4fQ.Lt0CzqyZ4zDMIrcwvRVbgRMud2zcI2YzxrodeP4seBwnaZdrB-UaRp9S0u78YvHp656enPxg8Z1vcgUy0ZDyFg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "comment",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "tags",
+							"value": "party",
+							"type": "text"
+						},
+						{
+							"key": "momentImage",
+							"type": "file",
+							"src": "/D:/Vikram/Files/Pics/pic.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8443/moment/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"moment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Moment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjg5NTFlYTI5OTJhYTUyNGM4MGRhNjEiLCJmdWxsTmFtZSI6IlZpa3JhbSBCYXJud2FsIiwiaWF0IjoxNjAyODM0OTI4fQ.Lt0CzqyZ4zDMIrcwvRVbgRMud2zcI2YzxrodeP4seBwnaZdrB-UaRp9S0u78YvHp656enPxg8Z1vcgUy0ZDyFg"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "comment",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "tags",
+							"value": "party",
+							"type": "text"
+						},
+						{
+							"key": "momentImage",
+							"type": "file",
+							"src": "/D:/Vikram/Files/Pics/pic.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8443/moment/5f885a3425215559a4b9bab3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"moment",
+						"5f885a3425215559a4b9bab3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Moment List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWJkNmJkMWFhOGU1OTMyNjhhYTA3MmYiLCJpYXQiOjE1ODk0NzIyMjF9.EeGo2YdFOuGBi2fxAng6FANmrrlW1J9_iboiZsj6WVc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8443/moment/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"moment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Moment Detail By Id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8443/moment/5f885a3425215559a4b9bab3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"moment",
+						"5f885a3425215559a4b9bab3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Moment Delete",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8443/moment/5f885a3425215559a4b9bab3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"moment",
+						"5f885a3425215559a4b9bab3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a863db05-cdd4-4753-baeb-eb4d0be63c90",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "76d6f61f-5fb8-49f7-a729-61455692f838",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
